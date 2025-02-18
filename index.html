@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BroTecs - Employee Managemnet</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="styles/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/fav32x32.png">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow">
+        <div class="container">
+            <!-- App Title -->
+            <a class="navbar-brand fw-bold" href="#">
+                Employee Managment
+            </a>
+
+            <!-- Toggle Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+
+                    <!-- Color Mode Change Toggle -->
+                    <div class="theme-switch-wrapper me-3">
+                        <label class="theme-switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <!-- Profile Dropdown -->
+                    <li class="nav-item dropdown profile-nav">
+                        <a class="nav-link d-flex align-items-center profile-toggle" href="#">
+                            <img src="images/avatar.png" alt="Profile" class="">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end profile-dropdown">
+                            <li class="px-3 py-2 text-center">
+                                <strong>Mehedi Hasan John</strong><br>
+                                <small class="text-muted">Super Admin <img src="/images/verified.png" alt=""></small>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
