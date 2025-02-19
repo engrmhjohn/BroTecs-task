@@ -19,56 +19,98 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow">
-        <div class="container">
-            <!-- App Title -->
-            <a class="navbar-brand fw-bold" href="#">
-                Employee Managment
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow">
+        <div class="container d-flex align-items-center">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="Logo" height="40">
             </a>
 
-            <!-- Toggle Button for Mobile -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <!-- Navbar Content -->
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+            <!-- Right: Color Mode & Profile (Always Right Aligned) -->
+            <div class="d-flex align-items-center">
+                <!-- Color Mode Toggle -->
+                <div class="theme-switch-wrapper me-3">
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
 
-                    <!-- Color Mode Change Toggle -->
-                    <div class="theme-switch-wrapper me-3">
-                        <label class="theme-switch">
-                            <input type="checkbox" id="theme-toggle">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
+                <!-- Profile Dropdown -->
+                <div class="dropdown profile-nav">
+                    <a class="nav-link d-flex align-items-center profile-toggle" href="#" role="button">
+                        <img src="images/avatar.png" alt="Profile" class="rounded-circle" width="32" height="32">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end profile-dropdown">
+                        <li class="px-3 py-2 text-center">
+                            <strong>Mehedi Hasan John</strong><br>
+                            <small class="text-muted">Super Admin <img src="/images/verified.png" alt=""></small>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a></li>
+                    </ul>
+                </div>
 
-                    <!-- Profile Dropdown -->
-                    <li class="nav-item dropdown profile-nav">
-                        <a class="nav-link d-flex align-items-center profile-toggle" href="#">
-                            <img src="images/avatar.png" alt="Profile" class="">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end profile-dropdown">
-                            <li class="px-3 py-2 text-center">
-                                <strong>Mehedi Hasan John</strong><br>
-                                <small class="text-muted">Super Admin <img src="/images/verified.png" alt=""></small>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
 
+
+
+    <!-- Mobile Dropdown for Color Toggle & Profile -->
+    <div id="mobileMenu" class="d-lg-none position-absolute end-0 bg-white shadow-sm rounded p-3 d-none">
+        <div class="mb-2">
+            <label class="theme-switch">
+                <input type="checkbox" id="mobile-theme-toggle">
+                <span class="slider round"></span> <span>Dark Mode</span>
+            </label>
+        </div>
+        <a href="#" class="d-block text-dark"><i class="fas fa-user me-2"></i> Profile</a>
+        <a href="#" class="d-block text-danger mt-2"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-lg-2 col-md-3 col-sm-4 col-2 d-flex flex-column bg-light pt-3">
+                <ul class="nav flex-column w-100">
+                    <li class="nav-item">
+                        <a href="#cardView" data-bs-toggle="tab" class="nav-link active">
+                            <i class="fas fa-table"></i> <span class="d-sm-inline d-none">Employee List</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tableView" data-bs-toggle="tab" class="nav-link">
+                            <i class="fas fa-th"></i> <span class="d-sm-inline d-none">Employee Table</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-lg-10 col-md-9 col-sm-8 col-10 p-4">
+                <div class="tab-content mt-3">
+                    <div id="cardView" class="tab-pane fade show active">
+                        <p>Card view content goes here...</p>
+                    </div>
+                    <div id="tableView" class="tab-pane fade">
+                        <p>Table view content goes here...</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 
