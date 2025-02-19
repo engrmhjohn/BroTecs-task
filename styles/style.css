@@ -206,15 +206,21 @@ input:checked+.slider:before {
     border-inline-start: 1px solid #e9edf4;
 }
 
+
+/* Sidebar */
 #sidebar {
-    min-height: 90vh;
+    min-height: 100vh;
     transition: width 0.3s;
+    background-color: #f4f8fb;
+}
+[data-bs-theme="dark"] #sidebar {
+    background-color: #262E42;
 }
 #sidebar .nav-link i {
     font-size: 1.5rem;
 }
 #sidebar .nav-link.active {
-    background-color: #007bff;
+    background-color: #0F2335;
     color: white;
 }
 #sidebar .nav-link {
@@ -238,46 +244,58 @@ input:checked+.slider:before {
     }
 }
 
-.employee-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+/* Employee Card */
+ .employee-card {
+    position: relative;
+    border-radius: 20px;
     overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #ffc9b5;
     cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+[data-bs-theme="dark"] .employee-card  {
+    /* background-color: #2a2a4a; */
+    border: 1px solid #ffc9b5;
 }
 
-.employee-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+
+ .employee-card .shape {
+    width: 200px;
+    height: 200px;
+    background: #cce4ff;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    right: -100px;
+    transform: rotate(45deg);
 }
 
-.card-body {
-    padding: 20px;
-}
-
-.profile-pic {
-    width: 100px;
-    height: 100px;
+ .employee-card .card-img-top {
+    position: relative;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 2px solid #007bff;
+    border-top-left-radius: 0;
+    border-bottom: 5px solid #cce4ff;
     transition: transform 0.3s;
 }
 
-.employee-card:hover .profile-pic {
+.employee-card:hover .card-img-top {
     transform: scale(1.1);
 }
-
-.name {
-    margin: 15px 0 5px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+.employee-card .card-body {
+    padding: 20px;
 }
 
-.phone, .email {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #666;
+ .employee-card .employee-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+.employee-address {
+    padding: 10px;
+    border-top: 1px solid #eaeaea;
 }

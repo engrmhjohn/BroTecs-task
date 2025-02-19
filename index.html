@@ -76,7 +76,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <nav id="sidebar" class="col-lg-2 col-md-3 col-sm-4 col-2 d-flex flex-column bg-light pt-3">
+            <nav id="sidebar" class="col-lg-2 col-md-3 col-sm-4 col-2 d-flex flex-column pt-3">
                 <ul class="nav flex-column w-100">
                     <li class="nav-item">
                         <a href="#cardView" data-bs-toggle="tab" class="nav-link active">
@@ -92,10 +92,29 @@
             </nav>
 
             <!-- Main Content -->
-            <main class="col-lg-10 col-md-9 col-sm-8 col-10 p-4">
-                <div class="tab-content mt-3">
+            <main class="col-lg-10 col-md-9 col-sm-8 col-10">
+                <div class="tab-content">
                     <div id="cardView" class="tab-pane fade show active">
-                        <p>Card view content goes here...</p>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                                aria-expanded="false" aria-controls="collapse2">
+                                    <span class="shape"></span>
+                                    <img class="card-img-top" src="images/avatar.png" alt="Profile">
+                                    <div class="card-body">
+                                        <h4 class="employee-title">Mr. Mehedi Hasan John</h4>
+                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small>      <br>
+                                        <small><i class="fas fa-envelope me-1"></i> johnsubcse@gmail.com</small>
+                                    </div>
+                                    <div class="collapse" id="collapse2">
+                                        <div class="employee-address">
+                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail, Demra, Dhaka 1362.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more employee cards as needed -->
+                        </div>
                     </div>
                     <div id="tableView" class="tab-pane fade">
                         <p>Table view content goes here...</p>
