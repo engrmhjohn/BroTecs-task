@@ -8,14 +8,40 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="styles/all.min.css">
+    <!-- Box Icons -->
+    <link rel="stylesheet" href="styles/boxicons.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="styles/bootstrap-datatable.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/style.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/fav32x32.png">
 
+
+    <style>
+        .employee-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .action-buttons i {
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 1.2rem;
+        }
+
+        .edit-btn {
+            color: #007bff;
+        }
+
+        .delete-btn {
+            color: #dc3545;
+        }
+    </style>
 </head>
 
 <body>
@@ -98,17 +124,18 @@
                         <div class="row">
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
                                 <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse2"
-                                aria-expanded="false" aria-controls="collapse2">
+                                    aria-expanded="false" aria-controls="collapse2">
                                     <span class="shape"></span>
                                     <img class="card-img-top" src="images/avatar.png" alt="Profile">
                                     <div class="card-body">
                                         <h4 class="employee-title">Mr. Mehedi Hasan John</h4>
-                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small>      <br>
+                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small> <br>
                                         <small><i class="fas fa-envelope me-1"></i> johnsubcse@gmail.com</small>
                                     </div>
                                     <div class="collapse" id="collapse2">
                                         <div class="employee-address">
-                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail, Demra, Dhaka 1362.</p>
+                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail,
+                                                Demra, Dhaka 1362.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -116,8 +143,225 @@
                             <!-- Add more employee cards as needed -->
                         </div>
                     </div>
-                    <div id="tableView" class="tab-pane fade">
-                        <p>Table view content goes here...</p>
+                    <div id="tableView" class="tab-pane fade mb-3">
+                        <div class="container mt-5">
+                            <!-- Toggle Buttons for Column Visibility -->
+                            <div class="custom-dropdown d-flex justify-content-end">
+
+                                <button class="btn column-manage-btn mb-2" onclick="toggleDropdown()">
+                                    <i class="fas fa-sliders-h"></i> View
+                                </button>
+
+                                <div class="dropdown-menu" id="dropdownMenu">
+                                    <div class="dropdown-header">Toggle columns</div>
+                                    <button class="dropdown-item toggle-vis" data-column="1"
+                                        onclick="toggleColumn(this, 1)">
+                                        <span>Profile Picture</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="dropdown-item toggle-vis" data-column="2"
+                                        onclick="toggleColumn(this, 2)">
+                                        <span>Name</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="dropdown-item toggle-vis" data-column="3"
+                                        onclick="toggleColumn(this, 3)">
+                                        <span>Phone</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="dropdown-item toggle-vis" data-column="4"
+                                        onclick="toggleColumn(this, 4)">
+                                        <span>Email</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="dropdown-item toggle-vis" data-column="5"
+                                        onclick="toggleColumn(this, 5)">
+                                        <span>Address</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <table id="dataTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Profile Picture</th>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Active</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Russell Westbrook</td>
+                                        <td>01781 123450</td>
+                                        <td>russell@example.com</td>
+                                        <td>123 Main St, OKC</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>James Harden</td>
+                                        <td>01781 234561</td>
+                                        <td>james@example.com</td>
+                                        <td>456 Elm St, HOU</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Isaiah Thomas</td>
+                                        <td>01781 345672</td>
+                                        <td>isaiah@example.com</td>
+                                        <td>789 Oak St, BOS</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Anthony Davis</td>
+                                        <td>01781 456783</td>
+                                        <td>anthony@example.com</td>
+                                        <td>101 Pine St, NOP</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Karl-Anthony Towns</td>
+                                        <td>01781 567894</td>
+                                        <td>karl@example.com</td>
+                                        <td>202 Maple St, MIN</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Stephen Curry</td>
+                                        <td>01781 678905</td>
+                                        <td>stephen@example.com</td>
+                                        <td>303 Cedar St, GSW</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Kevin Durant</td>
+                                        <td>01781 789016</td>
+                                        <td>kevin@example.com</td>
+                                        <td>404 Birch St, BKN</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Kawhi Leonard</td>
+                                        <td>01781 890127</td>
+                                        <td>kawhi@example.com</td>
+                                        <td>505 Spruce St, LAC</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Giannis Antetokounmpo</td>
+                                        <td>01781 901238</td>
+                                        <td>giannis@example.com</td>
+                                        <td>606 Redwood St, MIL</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Joel Embiid</td>
+                                        <td>01781 012349</td>
+                                        <td>joel@example.com</td>
+                                        <td>707 Fir St, PHI</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td class="d-flex align-items-center">
+                                            <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
+                                        </td>
+                                        <td>Niel Embiid</td>
+                                        <td>01781 212349</td>
+                                        <td>niel@example.com</td>
+                                        <td>107 Fir St, PHI</td>
+                                        <td>
+                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
+                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -129,7 +373,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="js/dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap5.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 

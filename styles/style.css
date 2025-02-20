@@ -169,7 +169,7 @@ input:checked+.slider:before {
     background-color: #f0f0f0;
     cursor: pointer;
     overflow: hidden;
-    filter: drop-shadow(0 0 4px rgba(0,0,0,.25));
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, .25));
 }
 
 .profile-toggle img {
@@ -184,7 +184,6 @@ input:checked+.slider:before {
     right: 0;
     top: 47px;
     min-width: 200px;
-    background: white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -206,6 +205,9 @@ input:checked+.slider:before {
     border-inline-start: 1px solid #e9edf4;
 }
 
+[data-bs-theme="dark"] .profile-dropdown::before {
+    background: transparent;
+}
 
 /* Sidebar */
 #sidebar {
@@ -213,39 +215,47 @@ input:checked+.slider:before {
     transition: width 0.3s;
     background-color: #f4f8fb;
 }
+
 [data-bs-theme="dark"] #sidebar {
     background-color: #262E42;
 }
+
 #sidebar .nav-link i {
     font-size: 1.5rem;
 }
+
 #sidebar .nav-link.active {
     background-color: #0F2335;
     color: white;
 }
+
 #sidebar .nav-link {
     border: none;
 }
+
 @media (max-width: 576px) {
     #sidebar {
         align-items: center;
         padding-right: 0px !important;
         padding-left: 0px !important;
     }
+
     #sidebar .nav-link span {
         display: none;
     }
+
     #sidebar .nav-link {
         text-align: center;
         padding: 15px 0;
     }
+
     #sidebar .nav-item {
         width: 100%;
     }
 }
 
 /* Employee Card */
- .employee-card {
+.employee-card {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
@@ -254,14 +264,13 @@ input:checked+.slider:before {
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-[data-bs-theme="dark"] .employee-card  {
+
+[data-bs-theme="dark"] .employee-card {
     /* background-color: #2a2a4a; */
     border: 1px solid #ffc9b5;
 }
 
-
-
- .employee-card .shape {
+.employee-card .shape {
     width: 200px;
     height: 200px;
     background: #cce4ff;
@@ -272,7 +281,7 @@ input:checked+.slider:before {
     transform: rotate(45deg);
 }
 
- .employee-card .card-img-top {
+.employee-card .card-img-top {
     position: relative;
     width: 150px;
     height: 150px;
@@ -285,11 +294,12 @@ input:checked+.slider:before {
 .employee-card:hover .card-img-top {
     transform: scale(1.1);
 }
+
 .employee-card .card-body {
     padding: 20px;
 }
 
- .employee-card .employee-title {
+.employee-card .employee-title {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: -0.025em;
@@ -298,4 +308,84 @@ input:checked+.slider:before {
 .employee-address {
     padding: 10px;
     border-top: 1px solid #eaeaea;
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-dropdown .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 180px;
+    padding: 10px;
+    display: none;
+}
+
+.custom-dropdown .dropdown-menu.active {
+    display: block;
+}
+
+.custom-dropdown .dropdown-header {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.custom-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+    font-size: 14px;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background: #f3f3f3;
+}
+
+[data-bs-theme="dark"] .custom-dropdown .dropdown-item:hover {
+    background: #f3f3f3;
+    color: black;
+}
+
+.custom-dropdown .column-manage-btn {
+    border: 1px solid #dee2e6;
+    background: #f4f8fb;
+}
+
+.custom-dropdown .column-manage-btn:hover {
+    border: 1px solid #dee2e6;
+}
+
+[data-bs-theme="dark"] .custom-dropdown .column-manage-btn {
+    background: transparent;
+}
+
+#tableView .details-control {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Style for hidden details row */
+#tableView .details-row {
+    text-align: left;
+}
+
+#tableView tbody tr td:first-child {
+    text-align: center;
 }
