@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="styles/all.min.css">
     <!-- Box Icons -->
     <link rel="stylesheet" href="styles/boxicons.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/fav32x32.png">
+    <!-- tostr alert css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Dropify CSS -->
+    <link rel="stylesheet" href="styles/dropify.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <!-- DataTables CSS -->
@@ -17,29 +25,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/style.css">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="images/fav32x32.png">
-
-
     <style>
-        .employee-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        .action-buttons i {
-            cursor: pointer;
-            margin: 0 5px;
-            font-size: 1.2rem;
-        }
-
-        .edit-btn {
-            color: #007bff;
-        }
-
-        .delete-btn {
-            color: #dc3545;
+        .dropify-wrapper .dropify-message p {
+            font-size: 14px;
+            line-height: 22px;
+            color: #777;
+            text-align: center;
         }
     </style>
 </head>
@@ -106,12 +97,12 @@
                 <ul class="nav flex-column w-100">
                     <li class="nav-item">
                         <a href="#cardView" data-bs-toggle="tab" class="nav-link active">
-                            <i class="fas fa-table"></i> <span class="d-sm-inline d-none">Employee List</span>
+                            <i class='bx bx-id-card'></i> <span class="d-sm-inline d-none">Employee List</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#tableView" data-bs-toggle="tab" class="nav-link">
-                            <i class="fas fa-th"></i> <span class="d-sm-inline d-none">Employee Table</span>
+                            <i class='bx bx-table'></i> <span class="d-sm-inline d-none">Employee Table</span>
                         </a>
                     </li>
                 </ul>
@@ -140,7 +131,115 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Add more employee cards as needed -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                                    aria-expanded="false" aria-controls="collapse2">
+                                    <span class="shape"></span>
+                                    <img class="card-img-top" src="images/avatar.png" alt="Profile">
+                                    <div class="card-body">
+                                        <h4 class="employee-title">Mr. Mehedi Hasan John</h4>
+                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small> <br>
+                                        <small><i class="fas fa-envelope me-1"></i> johnsubcse@gmail.com</small>
+                                    </div>
+                                    <div class="collapse" id="collapse2">
+                                        <div class="employee-address">
+                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail,
+                                                Demra, Dhaka 1362.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                                    aria-expanded="false" aria-controls="collapse2">
+                                    <span class="shape"></span>
+                                    <img class="card-img-top" src="images/avatar.png" alt="Profile">
+                                    <div class="card-body">
+                                        <h4 class="employee-title">Mr. Mehedi Hasan John</h4>
+                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small> <br>
+                                        <small><i class="fas fa-envelope me-1"></i> johnsubcse@gmail.com</small>
+                                    </div>
+                                    <div class="collapse" id="collapse2">
+                                        <div class="employee-address">
+                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail,
+                                                Demra, Dhaka 1362.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                                    aria-expanded="false" aria-controls="collapse2">
+                                    <span class="shape"></span>
+                                    <img class="card-img-top" src="images/avatar.png" alt="Profile">
+                                    <div class="card-body">
+                                        <h4 class="employee-title">Mr. Mehedi Hasan John</h4>
+                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small> <br>
+                                        <small><i class="fas fa-envelope me-1"></i> johnsubcse@gmail.com</small>
+                                    </div>
+                                    <div class="collapse" id="collapse2">
+                                        <div class="employee-address">
+                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail,
+                                                Demra, Dhaka 1362.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                                    aria-expanded="false" aria-controls="collapse2">
+                                    <span class="shape"></span>
+                                    <img class="card-img-top" src="images/avatar.png" alt="Profile">
+                                    <div class="card-body">
+                                        <h4 class="employee-title">Mr. Mehedi Hasan John</h4>
+                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small> <br>
+                                        <small><i class="fas fa-envelope me-1"></i> johnsubcse@gmail.com</small>
+                                    </div>
+                                    <div class="collapse" id="collapse2">
+                                        <div class="employee-address">
+                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail,
+                                                Demra, Dhaka 1362.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                                    aria-expanded="false" aria-controls="collapse2">
+                                    <span class="shape"></span>
+                                    <img class="card-img-top" src="images/avatar.png" alt="Profile">
+                                    <div class="card-body">
+                                        <h4 class="employee-title">Mr. Mehedi Hasan John</h4>
+                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small> <br>
+                                        <small><i class="fas fa-envelope me-1"></i> johnsubcse@gmail.com</small>
+                                    </div>
+                                    <div class="collapse" id="collapse2">
+                                        <div class="employee-address">
+                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail,
+                                                Demra, Dhaka 1362.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse2"
+                                    aria-expanded="false" aria-controls="collapse2">
+                                    <span class="shape"></span>
+                                    <img class="card-img-top" src="images/avatar.png" alt="Profile">
+                                    <div class="card-body">
+                                        <h4 class="employee-title">Mr. Mehedi Hasan John</h4>
+                                        <small><i class="fas fa-phone-alt me-1"></i> 01781 398652</small> <br>
+                                        <small><i class="fas fa-envelope me-1"></i> johnsubcse@gmail.com</small>
+                                    </div>
+                                    <div class="collapse" id="collapse2">
+                                        <div class="employee-address">
+                                            <p><i class="fas fa-map-marker-alt me-1"></i> Lane-01, Aman City, Matuail,
+                                                Demra, Dhaka 1362.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div id="tableView" class="tab-pane fade mb-3">
@@ -197,7 +296,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Russell Westbrook</td>
@@ -205,14 +304,18 @@
                                         <td>russell@example.com</td>
                                         <td>123 Main St, OKC</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon delete_confirm"><i
+                                                    class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>James Harden</td>
@@ -220,14 +323,17 @@
                                         <td>james@example.com</td>
                                         <td>456 Elm St, HOU</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Isaiah Thomas</td>
@@ -235,14 +341,17 @@
                                         <td>isaiah@example.com</td>
                                         <td>789 Oak St, BOS</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Anthony Davis</td>
@@ -250,14 +359,17 @@
                                         <td>anthony@example.com</td>
                                         <td>101 Pine St, NOP</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Karl-Anthony Towns</td>
@@ -265,14 +377,17 @@
                                         <td>karl@example.com</td>
                                         <td>202 Maple St, MIN</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Stephen Curry</td>
@@ -280,14 +395,17 @@
                                         <td>stephen@example.com</td>
                                         <td>303 Cedar St, GSW</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Kevin Durant</td>
@@ -295,14 +413,17 @@
                                         <td>kevin@example.com</td>
                                         <td>404 Birch St, BKN</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Kawhi Leonard</td>
@@ -310,14 +431,17 @@
                                         <td>kawhi@example.com</td>
                                         <td>505 Spruce St, LAC</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Giannis Antetokounmpo</td>
@@ -325,14 +449,17 @@
                                         <td>giannis@example.com</td>
                                         <td>606 Redwood St, MIL</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Joel Embiid</td>
@@ -340,14 +467,17 @@
                                         <td>joel@example.com</td>
                                         <td>707 Fir St, PHI</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <img src="images/avatar.png" alt="Profile" class="employee-img me-2">
                                         </td>
                                         <td>Niel Embiid</td>
@@ -355,8 +485,11 @@
                                         <td>niel@example.com</td>
                                         <td>107 Fir St, PHI</td>
                                         <td>
-                                            <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a>
-                                            <a href="#" class="delete-icon"><i class="fas fa-trash"></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#addModal"
+                                                class="add-icon"><i class='bx bxs-user-plus'></i></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                class="edit-icon"><i class='bx bx-edit'></i></a>
+                                            <a href="#" class="delete-icon"><i class='bx bx-trash'></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -368,15 +501,90 @@
         </div>
     </div>
 
+    <!-- Add Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addModalLabel">Add Details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addForm">
+                        <div class="mb-1">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea class="form-control" id="address" name="address" rows="2" required></textarea>
+                        </div>
+                        <div class="mb-1">
+                            <label for="profilePic" class="form-label">Profile Picture</label>
+                            <input type="file" id="profilePic" class="dropify" data-height="150" name="profilePic">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="saveChanges">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">Edit Modal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- DataTables JS -->
     <script src="js/dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap5.min.js"></script>
+    <!-- Sweet Alert JS -->
+    <script src="js/sweetalert2.js"></script>
+    <!-- tostr alert js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Dropify JS -->
+    <script src="js/dropify.min.js"></script>
+    <!-- FilePond JS -->
+    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Initialize Dropify
+            $('.dropify').dropify();
+        });
+    </script>
 </body>
 
 </html>

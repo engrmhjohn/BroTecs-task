@@ -128,3 +128,42 @@ document.addEventListener("click", function (event) {
         dropdown.classList.remove("active");
     }
 });
+
+ // Delete Confirm
+$('.delete_confirm').click(function(event) {
+    var form = $(this).closest("form");
+    event.preventDefault();
+
+    Swal.fire({
+        title: 'Do you want to delete this?'
+        , text: "Once deleted, you will not be able to recover this!"
+        , icon: 'warning'
+        , showCancelButton: true
+        , confirmButtonColor: '#3085d6'
+        , cancelButtonColor: '#d33'
+        , confirmButtonText: 'Yes, delete it'
+        , reverseButtons: false
+    }).then((result) => {
+        if (result.isConfirmed) {
+            form.submit();
+        }
+    });
+});
+
+
+ // Toastr Alert
+document.addEventListener("DOMContentLoaded", function () {
+    // Check if a message is stored in localStorage
+    let message = localStorage.getItem('message');
+
+    if (message) {
+        toastr.options = {
+            "progressBar": true,
+            "closeButton": true
+        };
+        toastr.success(message);
+
+        // Remove message after displaying it
+        localStorage.removeItem('message');
+    }
+});
