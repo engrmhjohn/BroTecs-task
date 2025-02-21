@@ -290,6 +290,7 @@ input:checked+.slider:before {
     }
 
     #sidebar .nav-link {
+        display: block;
         text-align: center;
         padding: 15px 0;
     }
@@ -328,8 +329,8 @@ input:checked+.slider:before {
 
 .employee-card .card-img-top {
     position: relative;
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border-top-left-radius: 0;
     border-bottom: 5px solid #cce4ff;
@@ -412,16 +413,16 @@ input:checked+.slider:before {
     color: black;
 }
 
-.custom-dropdown .column-manage-btn {
+.column-manage-btn, .view-change-btn {
     border: 1px solid #dee2e6;
     background: #f4f8fb;
 }
 
-.custom-dropdown .column-manage-btn:hover {
+.column-manage-btn:hover, .view-change-btn:hover {
     border: 1px solid #dee2e6;
 }
 
-[data-bs-theme="dark"] .custom-dropdown .column-manage-btn {
+[data-bs-theme="dark"] .custom-dropdown .column-manage-btn, [data-bs-theme="dark"] .view-change-btn {
     background: transparent;
 }
 
@@ -436,6 +437,9 @@ input:checked+.slider:before {
     #dataTable_wrapper {
         width: 100%;
         overflow-x: auto;
+    }
+    .dataTables_wrapper .dataTables_length{
+        margin-bottom: 10px;
     }
 }
 

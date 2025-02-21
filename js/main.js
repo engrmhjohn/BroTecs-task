@@ -129,6 +129,7 @@ document.addEventListener("click", function (event) {
     }
 });
 
+
  // Delete Confirm
 $('.delete_confirm').click(function(event) {
     var form = $(this).closest("form");
@@ -167,3 +168,33 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.removeItem('message');
     }
 });
+
+// Initialize Dropify
+$(document).ready(function () {
+    $('.dropify').dropify();
+});
+
+// Toggle Between Table to Card
+function toggleView() {
+    let cardView = document.getElementById("cardView");
+    let tableView = document.getElementById("tableView");
+    let button = document.querySelector(".toggle-btn");
+    let icon = button.querySelector("i");
+
+    // If Card View is active, switch to Table View
+    if (cardView.classList.contains("show", "active")) {
+        // Hide Card View and Show Table View
+        cardView.classList.remove("show", "active");
+        tableView.classList.add("show", "active");
+
+        // Update Button Text and Icon to Table View
+        button.innerHTML = '<i class="fa-solid fa-id-card"></i> Card View';  // Change to Card View
+    } else {
+        // Hide Table View and Show Card View
+        tableView.classList.remove("show", "active");
+        cardView.classList.add("show", "active");
+
+        // Update Button Text and Icon to Table View
+        button.innerHTML = '<i class="fa-solid fa-table-list"></i> Table View';  // Change to Table View
+    }
+}
