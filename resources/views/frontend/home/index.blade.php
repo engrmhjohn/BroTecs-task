@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>BroTecs - Employee Managemnet</title>
+    <title>BroTecs - Employee Management</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/all.min.css">
     <!-- Box Icons -->
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/boxicons.min.css">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets') }}/images/fav32x32.png">
+    <link rel="icon" type="image/png" href="{{ asset('assets') }}/images/favicon.ico">
     <!-- Dropify CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/dropify.min.css">
     <!-- Bootstrap CSS -->
@@ -26,7 +26,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow">
         <div class="container d-flex align-items-center">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('/') }}">
                 <img src="{{ asset('assets') }}/images/logo.png" alt="Logo">
             </a>
             <div class="d-flex align-items-center">
@@ -81,7 +81,7 @@
             <nav id="sidebar" class="col-lg-2 col-md-3 col-sm-4 col-2 d-flex flex-column pt-3">
                 <ul class="nav flex-column w-100">
                     <li class="nav-item">
-                        <a href="javascript:void(0)" data-bs-toggle="tab" class="nav-link active">
+                        <a href="{{ route('/') }}" data-bs-toggle="tab" class="nav-link active">
                             <i class="fa-solid fa-users"></i> <span class="d-sm-inline d-none">Employees</span>
                         </a>
                     </li>
@@ -89,7 +89,7 @@
             </nav>
 
             <!-- Main Content -->
-            <main class="col-lg-10 col-md-9 col-sm-8 col-10">
+            <main class="col-lg-10 col-md-9 col-sm-8 col-10 pt-2">
                 <button class="btn toggle-btn view-change-btn mt-2" onclick="toggleView()">
                     <i class="fa-solid fa-id-card"></i> Grid View
                 </button>
@@ -131,7 +131,7 @@
                             <table id="dataTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th></th>
+                                        <th>SL</th>
                                         <th>Profile Picture</th>
                                         <th>Name</th>
                                         <th>Phone</th>
@@ -143,7 +143,7 @@
                                 <tbody>
                                     @foreach($employees as $employee)
                                     <tr>
-                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td><img src="{{ asset('uploads/employees/' . $employee->profile_picture) }}" alt="Profile" class="employee-img me-2"></td>
                                         <td>{{ $employee->name }}</td>
                                         <td>{{ $employee->phone }}</td>
@@ -239,9 +239,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     <!-- Edit Modal -->
     <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
@@ -411,7 +408,7 @@
                     // Append to table
                     $("#dataTable tbody").append(`
                         <tr>
-                            <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                            <td>${employee.id}</td>
                             <td><img src="${profileImage}" alt="Profile" class="employee-img me-2"></td>
                             <td>${employee.name}</td>
                             <td>${employee.phone}</td>
