@@ -21,3 +21,19 @@ Backend: Laravel
 Database: MySQL
 #Live Demo
 🔗 https://brotecs-task.onesky.com.bd/
+
+---------------------
+Steps to Run the Project Locally
+---------------------
+1. Clone the Repository - git clone https://github.com/your-username/your-repo.git or download as zip
+2. Navigate to the project folder: cd your-repo
+3. Install Dependencies: composer install or composer update
+4. Set Up Environment Variables - cp .env.example .env
+5. Generate an application key: php artisan key:generate
+6. Configure Database: Open the .env file and update the database credentials:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_db_username
+DB_PASSWORD=your_db_password
