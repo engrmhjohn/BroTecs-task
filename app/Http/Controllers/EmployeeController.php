@@ -62,7 +62,7 @@ class EmployeeController extends Controller
             'phone' => 'required|unique:employees,phone,' . $id,
             'email' => 'required|unique:employees,email,' . $id,
             'address' => 'required',
-            'description' => 'required',
+            'description' => 'nullable',
         ]);
 
         $employee = Employee::find($id);

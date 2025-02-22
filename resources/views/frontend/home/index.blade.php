@@ -91,10 +91,79 @@
             <!-- Main Content -->
             <main class="col-lg-10 col-md-9 col-sm-8 col-10">
                 <button class="btn toggle-btn view-change-btn mt-2" onclick="toggleView()">
-                    <i class="fa-solid fa-table-list"></i> List View
+                    <i class="fa-solid fa-id-card"></i> Grid View
                 </button>
                 <div class="tab-content">
-                    <div id="cardView" class="tab-pane fade show active">
+                    <div id="tableView" class="tab-pane fade show active mb-3">
+                        <div class="container mt-2">
+                            <!-- Toggle Buttons for Column Visibility -->
+                            <div class="custom-dropdown d-flex justify-content-end">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" class="add-icon btn add-employee-btn mb-2 me-2"><i class="fa-solid fa-user-plus"></i> Employee</a>
+                                <button class="btn column-manage-btn mb-2" onclick="toggleDropdown()">
+                                    <i class="fas fa-sliders-h"></i> Column Visibility
+                                </button>
+    
+                                <div class="dropdown-menu" id="dropdownMenu">
+                                    <div class="dropdown-header">Toggle columns</div>
+                                    <button class="dropdown-item toggle-vis" data-column="1" onclick="toggleColumn(this, 1)">
+                                        <span>Profile Picture</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="dropdown-item toggle-vis" data-column="2" onclick="toggleColumn(this, 2)">
+                                        <span>Name</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="dropdown-item toggle-vis" data-column="3" onclick="toggleColumn(this, 3)">
+                                        <span>Phone</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="dropdown-item toggle-vis" data-column="4" onclick="toggleColumn(this, 4)">
+                                        <span>Email</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="dropdown-item toggle-vis" data-column="5" onclick="toggleColumn(this, 5)">
+                                        <span>Address</span>
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                            </div>
+    
+                            <table id="dataTable" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Profile Picture</th>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($employees as $employee)
+                                    <tr>
+                                        <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
+                                        <td><img src="{{ asset('uploads/employees/' . $employee->profile_picture) }}" alt="Profile" class="employee-img me-2"></td>
+                                        <td>{{ $employee->name }}</td>
+                                        <td>{{ $employee->phone }}</td>
+                                        <td>{{ $employee->email }}</td>
+                                        <td>{{ $employee->address }}</td>
+                                        <td>
+                                            <a href="#" class="edit-icon" data-id="{{ $employee->id }}" data-bs-toggle="modal" data-bs-target="#editEmployeeModal">
+                                                <i class='bx bx-edit'></i>
+                                            </a>
+                                            <a href="#" class="delete-icon" data-id="{{ $employee->id }}">
+                                                <i class='bx bx-trash'></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="cardView" class="tab-pane fade">
                         <div class="row">
                             @foreach($employees as $employee)
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
@@ -115,75 +184,6 @@
                             </div>
                             @endforeach
                         </div>
-                    </div>
-                </div>
-                <div id="tableView" class="tab-pane fade mb-3">
-                    <div class="container mt-2">
-                        <!-- Toggle Buttons for Column Visibility -->
-                        <div class="custom-dropdown d-flex justify-content-end">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" class="add-icon btn add-employee-btn mb-2 me-2"><i class="fa-solid fa-user-plus"></i> Employee</a>
-                            <button class="btn column-manage-btn mb-2" onclick="toggleDropdown()">
-                                <i class="fas fa-sliders-h"></i> Column Visibility
-                            </button>
-
-                            <div class="dropdown-menu" id="dropdownMenu">
-                                <div class="dropdown-header">Toggle columns</div>
-                                <button class="dropdown-item toggle-vis" data-column="1" onclick="toggleColumn(this, 1)">
-                                    <span>Profile Picture</span>
-                                    <i class="fas fa-check"></i>
-                                </button>
-                                <button class="dropdown-item toggle-vis" data-column="2" onclick="toggleColumn(this, 2)">
-                                    <span>Name</span>
-                                    <i class="fas fa-check"></i>
-                                </button>
-                                <button class="dropdown-item toggle-vis" data-column="3" onclick="toggleColumn(this, 3)">
-                                    <span>Phone</span>
-                                    <i class="fas fa-check"></i>
-                                </button>
-                                <button class="dropdown-item toggle-vis" data-column="4" onclick="toggleColumn(this, 4)">
-                                    <span>Email</span>
-                                    <i class="fas fa-check"></i>
-                                </button>
-                                <button class="dropdown-item toggle-vis" data-column="5" onclick="toggleColumn(this, 5)">
-                                    <span>Address</span>
-                                    <i class="fas fa-check"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <table id="dataTable" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Profile Picture</th>
-                                    <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($employees as $employee)
-                                <tr>
-                                    <td class="details-control"><i class="fa-solid fa-circle-plus"></i></td>
-                                    <td><img src="{{ asset('uploads/employees/' . $employee->profile_picture) }}" alt="Profile" class="employee-img me-2"></td>
-                                    <td>{{ $employee->name }}</td>
-                                    <td>{{ $employee->phone }}</td>
-                                    <td>{{ $employee->email }}</td>
-                                    <td>{{ $employee->address }}</td>
-                                    <td>
-                                        <a href="#" class="edit-icon" data-id="{{ $employee->id }}" data-bs-toggle="modal" data-bs-target="#editEmployeeModal">
-                                            <i class='bx bx-edit'></i>
-                                        </a>
-                                        <a href="#" class="delete-icon" data-id="{{ $employee->id }}">
-                                            <i class='bx bx-trash'></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
                     </div>
                 </div>
         </div>
@@ -233,7 +233,7 @@
                             <input type="file" name="profile_picture" class="dropify" data-height="150">
                             <small class="text-danger error-profile_picture"></small>
                         </div>
-                        <button type="submit" class="btn btn-primary">Add Employee</button>
+                        <button type="submit" class="btn add-employee-btn float-end">Add Employee</button>
                     </form>
                 </div>
             </div>
@@ -245,7 +245,7 @@
 
     <!-- Edit Modal -->
     <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editEmployeeModalLabel">Edit Employee</h5>
@@ -281,11 +281,11 @@
                             <span class="text-danger error-description"></span>
                         </div>
                         <div class="mb-3">
-                            <label for="edit_profile_picture" class="form-label">Profile Picture</label>
-                            <input type="file" class="form-control" id="edit_profile_picture" name="profile_picture" required>
+                            <label for="edit_profile_picture" class="form-label">Choose New Profile</label>
+                            <input type="file" class="dropify" id="edit_profile_picture" name="profile_picture" required>
                             <img id="edit_preview_image" src="" alt="Profile" class="mt-2" width="100">
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Employee</button>
+                        <button type="submit" class="btn add-employee-btn float-end">Update Employee</button>
                     </form>
                 </div>
             </div>
@@ -311,7 +311,7 @@
 
     </script>
 
-    // Delete Employee with SweetAlert Confirmation
+    <!-- Delete Employee with SweetAlert Confirmation -->
     <script>
         $(document).on("click", ".delete-icon", function(e) {
             e.preventDefault();
@@ -331,7 +331,7 @@
                         url: "/delete-employee/" + id
                         , type: "DELETE"
                         , data: {
-                            _token: "{{ csrf_token() }}" // Laravel requires CSRF token
+                            _token: "{{ csrf_token() }}" 
                         }
                         , success: function(response) {
                             Swal.fire({
@@ -343,7 +343,7 @@
                             });
 
                             fetchEmployees(); // Reload the employee list dynamically
-                            location.reload();
+                            window.location.href = "{{ route('/') }}";
                         }
                         , error: function(xhr, status, error) {
                             Swal.fire("Error!", "Something went wrong.", "error");
@@ -356,7 +356,7 @@
     </script>
 
 
-    // save employee
+    <!-- save employee -->
     <script>
         $("#employeeForm").submit(function(e) {
         e.preventDefault();
@@ -394,7 +394,8 @@
     });
     </script>
 
-    // Fetch Employee
+
+    <!-- Fetch Employee -->
     <script>
     function fetchEmployees() {
         $.ajax({
@@ -458,7 +459,7 @@
     </script>
 
 
-    // Fetch Employee Data for Editing
+    <!-- Fetch Employee Data for Editing -->
     <script>
         $(document).on("click", ".edit-icon", function(e) {
             e.preventDefault();
@@ -485,7 +486,7 @@
     </script>
 
 
-    // Update Employee Data via AJAX
+    <!-- Update Employee Data via AJAX -->
     <script>
         $("#editEmployeeForm").submit(function(e) {
             e.preventDefault();
