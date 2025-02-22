@@ -12,11 +12,11 @@ class EmployeeController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'phone' => 'required|unique:employees,phone',
+            'phone' => 'required|max:13|unique:employees,phone',
             'email' => 'required|email|unique:employees,email',
             'address' => 'required|string',
-            'description' => 'required|string',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'nullable|string',
+            'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         if ($validator->fails()) {

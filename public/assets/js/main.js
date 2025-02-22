@@ -71,11 +71,6 @@ document.addEventListener("click", function (event) {
 });
 
 
- // Delete Confirm
-
-
-
-
 // Initialize Dropify
 $(document).ready(function () {
     $('.dropify').dropify();
@@ -165,4 +160,3 @@ $(document).ready(function () {
         column.visible(!column.visible());
     });
 });
-

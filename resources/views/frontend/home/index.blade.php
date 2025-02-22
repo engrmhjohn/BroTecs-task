@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/boxicons.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets') }}/images/fav32x32.png">
-    <!-- tostr alert css  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Dropify CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/dropify.min.css">
     <!-- Bootstrap CSS -->
@@ -23,16 +21,6 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/bootstrap-datatable.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/style.css">
-
-    <style>
-        .dropify-wrapper .dropify-message p {
-            font-size: 14px;
-            line-height: 22px;
-            color: #777;
-            text-align: center;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -41,9 +29,6 @@
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('assets') }}/images/logo.png" alt="Logo">
             </a>
-
-
-            <!-- Right: Color Mode & Profile (Always Right Aligned) -->
             <div class="d-flex align-items-center">
                 <!-- Color Mode Toggle -->
                 <div class="theme-switch-wrapper me-3">
@@ -100,11 +85,6 @@
                             <i class="fa-solid fa-users"></i> <span class="d-sm-inline d-none">Employees</span>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="#tableView" data-bs-toggle="tab" class="nav-link">
-                            <i class='bx bx-table'></i> <span class="d-sm-inline d-none">Employee Table</span>
-                        </a>
-                    </li> -->
                 </ul>
             </nav>
 
@@ -118,8 +98,7 @@
                         <div class="row">
                             @foreach($employees as $employee)
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
-                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse5"
-                                aria-expanded="false" aria-controls="collapse5">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
                                     <span class="shape"></span>
                                     <img class="card-img-top" src="{{ asset('uploads/employees/' . $employee->profile_picture) }}" alt="Profile">
                                     <div class="card-body">
@@ -142,7 +121,7 @@
                     <div class="container mt-2">
                         <!-- Toggle Buttons for Column Visibility -->
                         <div class="custom-dropdown d-flex justify-content-end">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" class="add-icon btn column-manage-btn"><i class='bx bxs-user-plus'></i></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" class="add-icon btn add-employee-btn mb-2 me-2"><i class="fa-solid fa-user-plus"></i> Employee</a>
                             <button class="btn column-manage-btn mb-2" onclick="toggleDropdown()">
                                 <i class="fas fa-sliders-h"></i> Column Visibility
                             </button>
@@ -215,7 +194,7 @@
 
     <!-- Add Employee Modal -->
     <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addEmployeeLabel">Add Employee</h5>
@@ -245,8 +224,8 @@
                             <small class="text-danger error-address"></small>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Description</label>
-                            <textarea name="description" class="form-control" required></textarea>
+                            <label class="form-label">Description (optional)</label>
+                            <textarea name="description" class="form-control"></textarea>
                             <small class="text-danger error-description"></small>
                         </div>
                         <div class="mb-3">
@@ -260,6 +239,7 @@
             </div>
         </div>
     </div>
+
 
 
 
@@ -302,7 +282,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="edit_profile_picture" class="form-label">Profile Picture</label>
-                            <input type="file" class="form-control" id="edit_profile_picture" name="profile_picture">
+                            <input type="file" class="form-control" id="edit_profile_picture" name="profile_picture" required>
                             <img id="edit_preview_image" src="" alt="Profile" class="mt-2" width="100">
                         </div>
                         <button type="submit" class="btn btn-primary">Update Employee</button>
@@ -310,7 +290,7 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="{{ asset('assets') }}/js/bootstrap.min.js"></script>
@@ -319,30 +299,9 @@
     <script src="{{ asset('assets') }}/js/dataTables.bootstrap5.min.js"></script>
     <!-- Sweet Alert JS -->
     <script src="{{ asset('assets') }}/js/sweetalert2.js"></script>
-    <!-- tostr alert js  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Dropify JS -->
     <script src="{{ asset('assets') }}/js/dropify.min.js"></script>
     <script src="{{ asset('assets') }}/js/main.js"></script>
-    @if (Session::has('success'))
-    <script>
-        toastr.options = {
-            "progressBar": true
-            , "closeButton": true
-        , }
-        toastr.success("{{ Session::get('success') }}")
-
-    </script>
-    @elseif(Session::has('error'))
-    <script>
-        toastr.options = {
-            "progressBar": true
-            , "closeButton": true
-        , }
-        toastr.error("{{ Session::get('error') }}")
-
-    </script>
-    @endif
     <script>
         $.ajaxSetup({
             headers: {
@@ -352,10 +311,54 @@
 
     </script>
 
+    // Delete Employee with SweetAlert Confirmation
+    <script>
+        $(document).on("click", ".delete-icon", function(e) {
+            e.preventDefault();
+            let id = $(this).data("id"); // Get employee ID
 
-// save employee
-<script>
-    $("#employeeForm").submit(function(e) {
+            Swal.fire({
+                title: "Are you sure?"
+                , text: "This employee will be permanently deleted."
+                , icon: "warning"
+                , showCancelButton: true
+                , confirmButtonColor: "#d33"
+                , cancelButtonColor: "#3085d6"
+                , confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "/delete-employee/" + id
+                        , type: "DELETE"
+                        , data: {
+                            _token: "{{ csrf_token() }}" // Laravel requires CSRF token
+                        }
+                        , success: function(response) {
+                            Swal.fire({
+                                icon: "success"
+                                , title: "Deleted!"
+                                , text: response.success
+                                , timer: 2000
+                                , showConfirmButton: false
+                            });
+
+                            fetchEmployees(); // Reload the employee list dynamically
+                            location.reload();
+                        }
+                        , error: function(xhr, status, error) {
+                            Swal.fire("Error!", "Something went wrong.", "error");
+                            console.error("Delete Error:", xhr.responseText);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+    // save employee
+    <script>
+        $("#employeeForm").submit(function(e) {
         e.preventDefault();
         var formData = new FormData(this);
 
@@ -389,11 +392,10 @@
             }
         });
     });
-</script>
+    </script>
 
-
-// Fetch Employee
-<script>
+    // Fetch Employee
+    <script>
     function fetchEmployees() {
         $.ajax({
             url: "{{ route('fetch_employees') }}", // Fetch employees from the backend
@@ -453,117 +455,72 @@
     $(document).ready(function() {
         fetchEmployees(); // Load employees on page load
     });
-</script>
+    </script>
 
 
-// Fetch Employee Data for Editing
-<script>
-    $(document).on("click", ".edit-icon", function(e) {
-        e.preventDefault();
-        let id = $(this).data("id"); // Get employee ID
+    // Fetch Employee Data for Editing
+    <script>
+        $(document).on("click", ".edit-icon", function(e) {
+            e.preventDefault();
+            let id = $(this).data("id"); // Get employee ID
 
-        $.ajax({
-            url: "/edit-employee/" + id,
-            type: "GET",
-            success: function(employee) {
-                $("#edit_id").val(employee.id);
-                $("#edit_name").val(employee.name);
-                $("#edit_phone").val(employee.phone);
-                $("#edit_email").val(employee.email);
-                $("#edit_address").val(employee.address);
-                $("#edit_description").val(employee.description);
-                
-                let profileImage = employee.profile_picture ? "/uploads/employees/" + employee.profile_picture : "/assets/images/avatar.png";
-                $("#edit_preview_image").attr("src", profileImage);
+            $.ajax({
+                url: "/edit-employee/" + id
+                , type: "GET"
+                , success: function(employee) {
+                    $("#edit_id").val(employee.id);
+                    $("#edit_name").val(employee.name);
+                    $("#edit_phone").val(employee.phone);
+                    $("#edit_email").val(employee.email);
+                    $("#edit_address").val(employee.address);
+                    $("#edit_description").val(employee.description);
 
-                $("#editEmployeeModal").modal("show");
-            }
+                    let profileImage = employee.profile_picture ? "/uploads/employees/" + employee.profile_picture : "/assets/images/avatar.png";
+                    $("#edit_preview_image").attr("src", profileImage);
+
+                    $("#editEmployeeModal").modal("show");
+                }
+            });
         });
-    });
-</script>
+    </script>
 
-// Update Employee Data via AJAX
-<script>
-    $("#editEmployeeForm").submit(function(e) {
-        e.preventDefault();
-        let id = $("#edit_id").val();
-        var formData = new FormData(this);
 
-        $.ajax({
-            url: "/update-employee/" + id,
-            type: "POST",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                Swal.fire({
-                    icon: "success",
-                    title: "Updated!",
-                    text: response.success,
-                    timer: 2000,
-                    showConfirmButton: false
-                });
+    // Update Employee Data via AJAX
+    <script>
+        $("#editEmployeeForm").submit(function(e) {
+            e.preventDefault();
+            let id = $("#edit_id").val();
+            var formData = new FormData(this);
 
-                $("#editEmployeeModal").modal("hide");
-                fetchEmployees();
-            },
-            error: function(xhr) {
-                let errors = xhr.responseJSON.errors;
-                $(".text-danger").text("");
-                $.each(errors, function(key, value) {
-                    $(".error-" + key).text(value[0]);
-                });
-            }
+            $.ajax({
+                url: "/update-employee/" + id
+                , type: "POST"
+                , data: formData
+                , processData: false
+                , contentType: false
+                , success: function(response) {
+                    Swal.fire({
+                        icon: "success"
+                        , title: "Updated!"
+                        , text: response.success
+                        , timer: 2000
+                        , showConfirmButton: false
+                    });
+
+                    $("#editEmployeeModal").modal("hide");
+                    fetchEmployees();
+                }
+                , error: function(xhr) {
+                    let errors = xhr.responseJSON.errors;
+                    $(".text-danger").text("");
+                    $.each(errors, function(key, value) {
+                        $(".error-" + key).text(value[0]);
+                    });
+                }
+            });
         });
-    });
-</script>
 
-// Delete Employee with SweetAlert Confirmation
-<script>
-    $(document).on("click", ".delete-icon", function(e) {
-        e.preventDefault();
-        let id = $(this).data("id"); // Get employee ID
-
-        Swal.fire({
-            title: "Are you sure?",
-            text: "This employee will be permanently deleted.",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    url: "/delete-employee/" + id,
-                    type: "DELETE",
-                    data: {
-                        _token: "{{ csrf_token() }}" // Laravel requires CSRF token
-                    },
-                    success: function(response) {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Deleted!",
-                            text: response.success,
-                            timer: 2000,
-                            showConfirmButton: false
-                        });
-
-                        fetchEmployees(); // Reload the employee list dynamically
-                        location.reload();
-                    },
-                    error: function(xhr, status, error) {
-                        Swal.fire("Error!", "Something went wrong.", "error");
-                        console.error("Delete Error:", xhr.responseText);
-                    }
-                });
-            }
-        });
-    });
-</script>
-
-
-
+    </script>
 
 </body>
 
