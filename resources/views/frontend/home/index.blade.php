@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/bootstrap-datatable.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/styles/style.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/styles/responsive.css">
 </head>
 
 <body>

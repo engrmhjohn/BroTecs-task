@@ -1,4 +1,17 @@
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #f4f8fb #d4d4d4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll Bar */
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -22,92 +35,9 @@
     /* Darker red on hover */
 }
 
-
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #f4f8fb #d4d4d4;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
 /* Logo */
 .navbar .navbar-brand img {
     max-width: 160px;
-}
-
-/* Hamburger Menu */
-.menu-btn {
-    position: absolute;
-    top: 19px;
-    left: 0px;
-    width: 70px;
-    z-index: 9999;
-}
-
-.menu-btn label {
-    display: flex;
-    flex-direction: column;
-    width: 30px;
-    cursor: pointer;
-}
-
-.menu-btn label span {
-    background: #333;
-    border-radius: 10px;
-    height: 3px;
-    margin: 3px 0;
-    transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-}
-
-/* Hide checkbox */
-.menu-btn input {
-    display: none;
-}
-
-/* Menu Icon Lines */
-.menu-btn span {
-    background: #333;
-    border-radius: 10px;
-    height: 5px;
-    margin: 6px 0;
-    transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-}
-
-/* Line Sizes */
-.menu-btn span:nth-of-type(1) {
-    width: 50%;
-}
-
-.menu-btn span:nth-of-type(2) {
-    width: 100%;
-}
-
-.menu-btn span:nth-of-type(3) {
-    width: 75%;
-}
-
-/* Checked State (Transform to X) */
-.menu-btn input:checked~span:nth-of-type(1) {
-    transform-origin: bottom;
-    transform: rotate(44deg) translate(3px, 1px);
-}
-
-.menu-btn input:checked~span:nth-of-type(2) {
-    transform-origin: top;
-    transform: rotate(-45deg);
-    /* Adjusted */
-}
-
-.menu-btn input:checked~span:nth-of-type(3) {
-    transform-origin: bottom;
-    width: 50%;
-    transform: translate(12px, -5px) rotate(45deg);
 }
 
 /* Dark / Light Mode */
@@ -177,19 +107,6 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
-}
-
-/* Card Background Color CSS */
-.card {
-    transition: background-color 0.3s ease;
-}
-
-[data-bs-theme="dark"] .card {
-    background-color: rgb(79, 79, 245);
-}
-
-[data-bs-theme="light"] .card {
-    background-color: rgb(177, 177, 3);
 }
 
 /* Profile Part */
@@ -274,28 +191,6 @@ input:checked+.slider:before {
     gap: 6px;
 }
 
-@media (max-width: 576px) {
-    #sidebar {
-        align-items: center;
-        padding-right: 0px !important;
-        padding-left: 0px !important;
-    }
-
-    #sidebar .nav-link span {
-        display: none;
-    }
-
-    #sidebar .nav-link {
-        display: block;
-        text-align: center;
-        padding: 15px 0;
-    }
-
-    #sidebar .nav-item {
-        width: 100%;
-    }
-}
-
 /* Employee Card */
 .employee-card {
     position: relative;
@@ -308,7 +203,6 @@ input:checked+.slider:before {
 }
 
 [data-bs-theme="dark"] .employee-card {
-    /* background-color: #2a2a4a; */
     border: 1px solid #ffc9b5;
 }
 
@@ -434,26 +328,6 @@ input:checked+.slider:before {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-}
-
-@media(max-width: 992px) {
-    #dataTable_wrapper {
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    .dataTables_wrapper .dataTables_length {
-        margin-bottom: 10px;
-    }
-}
-
-#tableView .details-control {
-    cursor: pointer;
-    font-size: 18px;
-}
-
-#tableView .details-row {
-    text-align: left;
 }
 
 #tableView tbody tr td:first-child {
