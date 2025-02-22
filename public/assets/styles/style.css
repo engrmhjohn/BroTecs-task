@@ -413,6 +413,10 @@ input:checked+.slider:before {
     color: #f4f8fb;
 }
 
+.modal-content .form-label{
+    margin-bottom: 0;
+}
+
 .form-control,
 textarea {
     border: none;

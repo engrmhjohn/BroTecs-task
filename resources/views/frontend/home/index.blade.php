@@ -204,32 +204,27 @@
                 <div class="modal-body">
                     <form id="employeeForm" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" required>
                             <small class="text-danger error-name"></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label">Phone</label>
                             <input type="text" name="phone" class="form-control" required>
                             <small class="text-danger error-phone"></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label">Email</label>
                             <input type="email" name="email" class="form-control" required>
                             <small class="text-danger error-email"></small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label">Address</label>
                             <input type="text" name="address" class="form-control" required>
                             <small class="text-danger error-address"></small>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Description (optional)</label>
-                            <textarea name="description" class="form-control"></textarea>
-                            <small class="text-danger error-description"></small>
-                        </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label">Profile Picture</label>
                             <input type="file" name="profile_picture" class="dropify" data-height="150">
                             <small class="text-danger error-profile_picture"></small>
@@ -253,34 +248,29 @@
                     <form id="editEmployeeForm">
                         @csrf
                         <input type="hidden" id="edit_id">
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="edit_name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="edit_name" name="name">
                             <span class="text-danger error-name"></span>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="edit_phone" class="form-label">Phone</label>
                             <input type="text" class="form-control" id="edit_phone" name="phone">
                             <span class="text-danger error-phone"></span>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="edit_email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="edit_email" name="email">
                             <span class="text-danger error-email"></span>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="edit_address" class="form-label">Address</label>
                             <input type="text" class="form-control" id="edit_address" name="address">
                             <span class="text-danger error-address"></span>
                         </div>
-                        <div class="mb-3">
-                            <label for="edit_description" class="form-label">Description</label>
-                            <textarea class="form-control" id="edit_description" name="description"></textarea>
-                            <span class="text-danger error-description"></span>
-                        </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="edit_profile_picture" class="form-label">Choose New Profile</label>
-                            <input type="file" class="dropify" id="edit_profile_picture" name="profile_picture" required>
+                            <input type="file" class="dropify" id="edit_profile_picture" name="profile_picture">
                             <img id="edit_preview_image" src="" alt="Profile" class="mt-2" width="100">
                         </div>
                         <button type="submit" class="btn add-employee-btn float-end">Update Employee</button>

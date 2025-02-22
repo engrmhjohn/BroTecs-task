@@ -15,7 +15,6 @@ class EmployeeController extends Controller
             'phone' => 'required|max:13|unique:employees,phone',
             'email' => 'required|email|unique:employees,email',
             'address' => 'required|string',
-            'description' => 'nullable|string',
             'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
@@ -36,7 +35,6 @@ class EmployeeController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
             'address' => $request->address,
-            'description' => $request->description,
             'profile_picture' => $imageName,
         ]);
 
@@ -62,7 +60,6 @@ class EmployeeController extends Controller
             'phone' => 'required|unique:employees,phone,' . $id,
             'email' => 'required|unique:employees,email,' . $id,
             'address' => 'required',
-            'description' => 'nullable',
         ]);
 
         $employee = Employee::find($id);
@@ -70,7 +67,6 @@ class EmployeeController extends Controller
         $employee->phone = $request->phone;
         $employee->email = $request->email;
         $employee->address = $request->address;
-        $employee->description = $request->description;
 
         if ($request->hasFile('profile_picture')) {
             $image = $request->file('profile_picture');
