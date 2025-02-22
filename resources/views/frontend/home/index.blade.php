@@ -225,8 +225,8 @@
                             <small class="text-danger error-address"></small>
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Profile Picture</label>
-                            <input type="file" name="profile_picture" class="dropify" data-height="150">
+                            <label class="form-label">Profile Picture (max. 2MB)</label>
+                            <input type="file" name="profile_picture" class="dropify" accept="image/*" data-height="150" required>
                             <small class="text-danger error-profile_picture"></small>
                         </div>
                         <button type="submit" class="btn add-employee-btn float-end">Add Employee</button>
@@ -269,8 +269,8 @@
                             <span class="text-danger error-address"></span>
                         </div>
                         <div class="mb-2">
-                            <label for="edit_profile_picture" class="form-label">Choose New Profile</label>
-                            <input type="file" class="dropify" id="edit_profile_picture" name="profile_picture">
+                            <label for="edit_profile_picture" class="form-label">Choose New Profile (max. 2MB)</label>
+                            <input type="file" class="dropify" id="edit_profile_picture" accept="image/*" name="profile_picture">
                             <img id="edit_preview_image" src="" alt="Profile" class="mt-2" width="100">
                         </div>
                         <button type="submit" class="btn add-employee-btn float-end">Update Employee</button>
@@ -385,65 +385,65 @@
 
     <!-- Fetch Employee -->
     <script>
-    function fetchEmployees() {
-        $.ajax({
-            url: "{{ route('fetch_employees') }}", // Fetch employees from the backend
-            type: "GET",
-            success: function(response) {
-                $("#dataTable tbody").html(""); // Clear existing table
-                $("#cardView .row").html(""); // Clear existing cards
-                
-                $.each(response.employees, function(index, employee) {
-                    let profileImage = employee.profile_picture ? "/uploads/employees/" + employee.profile_picture : "/assets/images/avatar.png";
+        function fetchEmployees() {
+            $.ajax({
+                url: "{{ route('fetch_employees') }}", // Fetch employees from the backend
+                type: "GET",
+                success: function(response) {
+                    $("#dataTable tbody").html(""); // Clear existing table
+                    $("#cardView .row").html(""); // Clear existing cards
+                    
+                    $.each(response.employees, function(index, employee) {
+                        let profileImage = employee.profile_picture ? "/uploads/employees/" + employee.profile_picture : "/assets/images/avatar.png";
 
-                    // Append to table
-                    $("#dataTable tbody").append(`
-                        <tr>
-                            <td>${employee.id}</td>
-                            <td><img src="${profileImage}" alt="Profile" class="employee-img me-2"></td>
-                            <td>${employee.name}</td>
-                            <td>${employee.phone}</td>
-                            <td>${employee.email}</td>
-                            <td>${employee.address}</td>
-                            <td>
-                                <a href="#" class="edit-icon" data-id="${employee.id}" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <i class='bx bx-edit'></i>
-                                </a>
-                                <a href="#" class="delete-icon" data-id="${employee.id}">
-                                    <i class='bx bx-trash'></i>
-                                </a>
-                            </td>
-                        </tr>
-                    `);
+                        // Append to table
+                        $("#dataTable tbody").append(`
+                            <tr>
+                                <td>${index + 1}</td>
+                                <td><img src="${profileImage}" alt="Profile" class="employee-img me-2"></td>
+                                <td>${employee.name}</td>
+                                <td>${employee.phone}</td>
+                                <td>${employee.email}</td>
+                                <td>${employee.address}</td>
+                                <td>
+                                    <a href="#" class="edit-icon" data-id="${employee.id}" data-bs-toggle="modal" data-bs-target="#editModal">
+                                        <i class='bx bx-edit'></i>
+                                    </a>
+                                    <a href="#" class="delete-icon" data-id="${employee.id}">
+                                        <i class='bx bx-trash'></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        `);
 
-                    // Append to card view
-                    $("#cardView .row").append(`
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
-                            <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse${employee.id}"
-                                aria-expanded="false" aria-controls="collapse${employee.id}">
-                                <span class="shape"></span>
-                                <img class="card-img-top" src="${profileImage}" alt="Profile">
-                                <div class="card-body">
-                                    <h4 class="employee-title">${employee.name}</h4>
-                                    <small><i class="fas fa-phone-alt me-1"></i> ${employee.phone}</small> <br>
-                                    <small><i class="fas fa-envelope me-1"></i> ${employee.email}</small>
-                                </div>
-                                    <div class="collapse" id="collapse${employee.id}">
-                                        <div class="employee-address">
-                                            <p><i class="fas fa-map-marker-alt me-1"></i> ${employee.address}</p>
-                                        </div>
+                        // Append to card view
+                        $("#cardView .row").append(`
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+                                <div class="employee-card" data-bs-toggle="collapse" data-bs-target="#collapse${employee.id}"
+                                    aria-expanded="false" aria-controls="collapse${employee.id}">
+                                    <span class="shape"></span>
+                                    <img class="card-img-top" src="${profileImage}" alt="Profile">
+                                    <div class="card-body">
+                                        <h4 class="employee-title">${employee.name}</h4>
+                                        <small><i class="fas fa-phone-alt me-1"></i> ${employee.phone}</small> <br>
+                                        <small><i class="fas fa-envelope me-1"></i> ${employee.email}</small>
                                     </div>
+                                        <div class="collapse" id="collapse${employee.id}">
+                                            <div class="employee-address">
+                                                <p><i class="fas fa-map-marker-alt me-1"></i> ${employee.address}</p>
+                                            </div>
+                                        </div>
+                                </div>
                             </div>
-                        </div>
-                    `);
-                });
-            }
-        });
-    }
+                        `);
+                    });
+                }
+            });
+        }
 
-    $(document).ready(function() {
-        fetchEmployees(); // Load employees on page load
-    });
+        $(document).ready(function() {
+            fetchEmployees(); // Load employees on page load
+        });
     </script>
 
 
